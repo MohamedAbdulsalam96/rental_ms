@@ -1,2 +1,7 @@
-# rental_ms
-Rental services management system
+## Rental Services MS
+
+Booking Any type of Service
+
+#### License
+
+MIT
