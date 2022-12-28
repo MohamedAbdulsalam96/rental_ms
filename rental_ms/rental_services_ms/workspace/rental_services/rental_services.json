@@ -1,5 +1,5 @@
 {
- "cards_label": "Rental Booking Services",
+ "cards_label": "Rental Services Docs",
  "category": "Modules",
  "charts": [
   {
@@ -8,23 +8,23 @@
   }
  ],
  "charts_label": "Booking Status",
- "creation": "2021-06-14 20:42:38.082406",
+ "creation": "2022-12-28 20:37:12.520399",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
  "extends_another_page": 0,
  "hide_custom": 0,
- "icon": "support",
+ "icon": "loan",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Service Request",
+ "label": "Rental Services",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Booking Service",
+   "label": "Rental Services",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -50,7 +50,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Stock",
+   "label": "Settings",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -63,22 +63,37 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Services Setting",
+   "link_to": "Service Request Setting",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2021-06-14 21:01:16.528703",
+ "modified": "2022-12-28 20:37:54.573148",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
- "name": "Service Request",
+ "name": "Rental Services",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
+ "pin_to_top": 0,
  "shortcuts": [
   {
    "doc_view": "New",
-   "label": "Create Booking",
+   "label": "Service Request",
    "link_to": "Service Request",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Item Service",
+   "link_to": "Item",
    "type": "DocType"
   }
  ],
- "shortcuts_label": "Quick Booking"
+ "shortcuts_label": "Your Shortcuts"
 }

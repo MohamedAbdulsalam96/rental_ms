@@ -14,5 +14,5 @@ frappe.views.calendar['Service Request'] = {
 		Private: 'info'
 	},
 	// order_by: 'to_time',
-	get_events_method: 'rental_ms.Rental_services_ms.doctype.service_request.service_request.get_service_request_details'
+	get_events_method: 'rental_ms.rental_services_ms.doctype.service_request.service_request.get_service_request_details'
 }

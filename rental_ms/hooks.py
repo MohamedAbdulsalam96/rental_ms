@@ -107,7 +107,7 @@ doc_events = {
         "validate": "rental_ms.utils.make_booking_service_item"
     }
 }
-after_migrate = "rental_ms.Rental_services_ms.doctype.khatavahi_service_request_setting.khatavahi_service_request_setting.setup_custom_fields"
+after_migrate = "rental_ms.rental_services_ms.doctype.service_request_setting.service_request_setting.setup_custom_fields"
 
 # Scheduled Tasks
 # ---------------

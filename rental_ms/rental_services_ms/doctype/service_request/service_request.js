@@ -20,7 +20,7 @@ frappe.ui.form.on('Service Request', {
 
 cur_frm.cscript['Make Sales Order'] = function() {
 	frappe.model.open_mapped_doc({
-		method: "rental_ms.Rental_services_ms.doctype.service_request.service_request.make_sales_order",
+		method: "rental_ms.rental_services_ms.doctype.service_request.service_request.make_sales_order",
 		frm: cur_frm
 	})
 };
