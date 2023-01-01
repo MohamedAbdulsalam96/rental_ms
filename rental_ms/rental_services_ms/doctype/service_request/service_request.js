@@ -1,4 +1,5 @@
-
+// Copyright (c) 2022, Mohamed Abdulsalam
+// For license information, please see license.txt
 // {% include 'rental_ms/rental_services_ms/loan_common.js' %};
 
 frappe.ui.form.on('Service Request', {
@@ -16,6 +17,7 @@ frappe.ui.form.on('Service Request', {
 					"rental_item": 1
 				}
 			};
+			
 		});
 		// LP>>>>>>>
 		frm.trigger("add_toolbar_buttons"); 
@@ -89,6 +91,16 @@ frappe.ui.form.on('Service Request', {
 
 		if (flt(maximum_amount)) {
 			frm.set_value('maximum_loan_amount', flt(maximum_amount));
+		}
+
+		let rental_items = "";
+
+		$.each(frm.doc.book_item || [], function(i, item){
+			rental_items = item.item;
+		});
+
+		if (rental_items) {
+			frm.set_value('item', rental_items);
 		}
 	}
 });
@@ -228,7 +240,6 @@ frappe.ui.form.on("Proposed Pledge", {
 			frappe.call({
 				method: "rental_ms.rental_services_ms.doctype.service_request.service_request.get_loan_security_price",
 				// method: "erpnext.loan_management.doctype.loan_security_price.loan_security_price.get_loan_security_price",
-				// rental_ms.rental_services_ms.doctype.service_request.api.loan_security_price
 				args: {
 					loan_security: row.loan_security
 				},

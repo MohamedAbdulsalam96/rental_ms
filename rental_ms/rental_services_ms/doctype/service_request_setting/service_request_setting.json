@@ -1,6 +1,6 @@
 {
  "actions": [],
- "creation": "2022-12-22 15:18:44.780679",
+ "creation": "2019-06-14 15:18:44.780679",
  "doctype": "DocType",
  "document_type": "Setup",
  "editable_grid": 1,
@@ -43,7 +43,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2022-12-30 10:41:22.048816",
+ "modified": "2022-10-10 10:41:22.048816",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request Setting",

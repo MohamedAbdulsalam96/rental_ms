@@ -1,8 +1,19 @@
-# Copyright (c) 2023, Mohamed Abdulsalam Alqadasi and contributors
-
-
-# import frappe
+import frappe
+from frappe import _
 from frappe.model.document import Document
+from frappe.utils import getdate
+
 
 class Vehicle(Document):
-	pass
+	def validate(self):
+		if getdate(self.start_date) > getdate(self.end_date):
+			frappe.throw(_("Insurance Start date should be less than Insurance End date"))
+		if getdate(self.carbon_check_date) > getdate():
+			frappe.throw(_("Last carbon check date cannot be a future date"))
+
+def get_timeline_data(doctype, name):
+	'''Return timeline for vehicle log'''
+	return dict(frappe.db.sql('''select unix_timestamp(date), count(*)
+	from `tabVehicle Log` where license_plate=%s
+	and date > date_sub(curdate(), interval 1 year)
+	group by date''', name))

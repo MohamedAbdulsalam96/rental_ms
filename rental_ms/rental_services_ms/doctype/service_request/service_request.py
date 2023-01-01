@@ -1,7 +1,7 @@
-
-
-
-# from loan app.....
+# -*- coding: utf-8 -*-
+# Copyright (c) 2022, Mohamed Abdulsalam
+# For license information, please see license.txt
+# from loan app..............
 from __future__ import unicode_literals
 import frappe
 from frappe import _
@@ -24,7 +24,7 @@ import math
 # 	get_loan_security_price,
 # )
 # rental_ms.rental_services_ms.doctype.service_request.api.loan_security_price
-# End : from loan app.....
+# End : from loan app..............
 
 
 class ServiceRequest(Document):
@@ -110,6 +110,7 @@ def make_sales_invoice(source_name, target_doc=None):
 	cst = frappe.db.get_value("Service Request", source_name, ["customer"])
 	customer = frappe.db.get_value("Customer", {"name": cst}, [
 								   "name", "customer_name"], as_dict=True)
+	
 
 	def set_missing_values(source, target):
 		if customer:
@@ -158,54 +159,70 @@ def make_sales_invoice(source_name, target_doc=None):
 
 	return doclist
 
-# //////////////Vehicle Log  vehicle_log
+# Vehicle Log  
 @frappe.whitelist()
 def make_vehicle_log(source_name, target_doc=None):
 	cst = frappe.db.get_value("Service Request", source_name, ["customer"])
 	customer = frappe.db.get_value("Customer", {"name": cst}, [
 								   "name", "customer_name"], as_dict=True)
+	vm = frappe.db.get_value("Service Request", source_name, ["item"])
+	vehicle_item = frappe.db.get_value("Item", {"name": vm},as_dict=True)
+
+	# service_request_doc = frappe.get_doc("Service Request", service_request)
+
+	# vl = frappe.new_doc("Loan Security Pledge")
+	# lsp.applicant_type = service_request_doc.party_type
+	# lsp.applicant = service_request_doc.customer
+	# lsp.service_request = service_request_doc.name
+	# lsp.company = service_request_doc.company
+
+
 
 	def set_missing_values(source, target):
 		if customer:
 			target.customer = customer.name
 			target.customer_name = customer.customer_name
+			target.vehicle_item = vehicle_item.name
 		target.ignore_pricing_rule = 1
 		target.flags.ignore_permissions = True
 		target.run_method("set_missing_values")
 		target.run_method("calculate_taxes_and_totals")
 
-	def update_item(obj, target, source_parent):
-		target.stock_qty = flt(obj.quantity)
-		target.qty = flt(obj.quantity)
+	# def update_item(obj, target, source_parent):
+	# 	target.stock_qty = flt(obj.quantity)
+	# 	target.qty = flt(obj.quantity)
 
 	doclist = get_mapped_doc("Service Request", source_name, {
 		"Service Request": {
 			"doctype": "Vehicle Log",
 			"field_map": {
-				"parent": "service_request"
+				"parent": "service_request",
+				"vehicle_item": "item",
+     			"Customer": "Customer"
 			},
 			"validation": {
 				"docstatus": ["=", 1]
 			}
 		},
-		"Service Request Item": {
-			"doctype": "Sales Order Item",
-			"field_map": {
-				"service_item": "item_code",
-				"quantity": "stock_qty",
-				"quantity": "qty",
-				"delivery_date": "delivery_date"
-			},
-			# "postprocess": update_item
-		},
-		"Sales Taxes and Charges": {
-			"doctype": "Sales Taxes and Charges",
-			"add_if_empty": True
-		},
-		"Sales Team": {
-			"doctype": "Sales Team",
-			"add_if_empty": True
-		}
+		# "Service Request Item": {
+		# 	"doctype": "Sales Order Item",
+		# 	"field_map": {
+		# 		"service_item": "item_code",
+		# 		"quantity": "stock_qty",
+		# 		"quantity": "qty",
+		# 		"delivery_date": "delivery_date"
+		# 	},
+		# 	# "postprocess": update_item
+		# },
+		# "Sales Taxes and Charges": {
+		# 	"doctype": "Sales Taxes and Charges",
+		# 	"add_if_empty": True
+		# },
+		# "Sales Team": {
+		# 	"doctype": "Sales Team",
+		# 	"add_if_empty": True
+		# }
+  
 	}, target_doc, set_missing_values, ignore_permissions=True)
 
 	# postprocess: fetch shipping address, set missing values

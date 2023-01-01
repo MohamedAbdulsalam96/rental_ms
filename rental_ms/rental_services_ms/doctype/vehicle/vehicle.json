@@ -42,14 +42,12 @@
    "fieldtype": "Data",
    "label": "License Plate",
    "no_copy": 1,
-   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "make",
    "fieldtype": "Data",
-   "label": "Make",
-   "reqd": 1
+   "label": "Make"
   },
   {
    "fieldname": "column_break_3",
@@ -60,8 +58,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Model",
-   "reqd": 1
+   "label": "Model"
   },
   {
    "fieldname": "vehicle_details",
@@ -69,6 +66,7 @@
    "label": "Details"
   },
   {
+   "default": "100",
    "fieldname": "last_odometer",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -145,6 +143,7 @@
    "label": "Additional Details"
   },
   {
+   "default": "Petrol",
    "fieldname": "fuel_type",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -154,6 +153,7 @@
    "reqd": 1
   },
   {
+   "default": "Litre",
    "fieldname": "uom",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -195,15 +195,20 @@
    "read_only": 1
   },
   {
+   "allow_in_quick_entry": 1,
+   "bold": 1,
    "fieldname": "vehicle_item",
    "fieldtype": "Link",
-   "label": "Vehicle Item",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vehicle Name",
    "options": "Item",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "links": [],
- "modified": "2023-01-01 17:03:19.139337",
+ "modified": "2023-01-02 00:05:43.947481",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle",
