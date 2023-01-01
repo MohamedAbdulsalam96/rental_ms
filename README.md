@@ -1,6 +1,6 @@
 ## Rental Services MS
 
-Booking Any type of Service
+    Booking of Rental Service
 
 #### License
 

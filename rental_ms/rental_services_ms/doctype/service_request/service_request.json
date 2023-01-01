@@ -3,34 +3,57 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2018-09-19 13:16:47.522970",
+ "creation": "2022-12-25 13:16:47.522970",
  "doctype": "DocType",
  "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "party_type",
   "customer",
-  "column_break_2",
+  "col_break_2",
+  "company",
   "posting_date",
   "time",
   "rental_items_section",
+  "item",
+  "service_item",
+  "vehicle_name",
+  "stock_uom",
+  "col_break_3",
+  "delivery_date",
+  "return_date",
+  "col_break_4",
+  "quantity",
+  "rate",
+  "amount",
+  "rental_items_section_2",
   "book_item",
   "amended_from",
+  "is_secured_service",
+  "service_security_details_section",
+  "proposed_pledges",
+  "items_component_section",
+  "car_components",
+  "insurances_section",
+  "insurances",
   "status_section_section",
-  "sales_order",
+  "sales_invoice",
   "status"
  ],
  "fields": [
   {
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_2",
+   "fieldname": "col_break_2",
    "fieldtype": "Column Break"
   },
   {
@@ -49,6 +72,81 @@
    "label": "Rental Items"
   },
   {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Link",
+   "label": "Service Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "vehicle_name",
+   "fieldtype": "Link",
+   "label": "Vehicle Name",
+   "options": "Vehicle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "label": "Stock UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "return_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Return Date"
+  },
+  {
+   "fieldname": "col_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rental_items_section_2",
+   "fieldtype": "Section Break",
+   "label": "Rental Items2"
+  },
+  {
+   "allow_on_submit": 1,
    "fieldname": "book_item",
    "fieldtype": "Table",
    "label": "Book Item",
@@ -70,10 +168,11 @@
    "label": "Status Section"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
-   "fieldname": "sales_order",
+   "fieldname": "sales_invoice",
    "fieldtype": "Check",
-   "label": "Sales Order"
+   "label": "Sales Invoice"
   },
   {
    "default": "Now",
@@ -90,26 +189,88 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "\nDraft\nOn Hold\nTo Deliver and Bill\nTo Bill\nTo Deliver\nCompleted\nCancelled\nClosed",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.book_item",
+   "fieldname": "items_component_section",
+   "fieldtype": "Section Break",
+   "label": "Car Component"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "car_components",
+   "fieldtype": "Table",
+   "label": "Car component",
+   "options": "Car Components"
+  },
+  {
+   "fieldname": "insurances_section",
+   "fieldtype": "Section Break",
+   "label": "Insurances"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "insurances",
+   "fieldtype": "Table",
+   "label": "Insurances",
+   "options": "Car Insurances"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_secured_service",
+   "fieldtype": "Check",
+   "label": "Is Secured Service"
+  },
+  {
+   "collapsible_depends_on": "eval:doc.is_secured_service == 1",
+   "fieldname": "service_security_details_section",
+   "fieldtype": "Section Break",
+   "label": "Service Security Details"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Party Type",
+   "options": "Customer"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.is_secured_service == 1",
+   "fieldname": "proposed_pledges",
+   "fieldtype": "Table",
+   "label": "Proposed Pledges",
+   "options": "Proposed Pledge"
   }
  ],
  "is_submittable": 1,
  "links": [
   {
-   "link_doctype": "Sales Order",
+   "link_doctype": "Sales Invoice",
    "link_fieldname": "service_request"
   }
  ],
- "modified": "2022-10-10 11:19:31.363699",
+ "modified": "2023-01-01 18:25:19.982326",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request",
- "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -130,7 +291,6 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
  "title_field": "customer",
  "track_changes": 1,
  "track_seen": 1

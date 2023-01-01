@@ -1,7 +1,7 @@
 {
  "actions": [],
  "beta": 1,
- "creation": "2018-09-19 14:21:10.391410",
+ "creation": "2022-12-26 14:21:10.391410",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -12,7 +12,6 @@
   "return_date",
   "column_break_2",
   "note",
-  "column_break_8",
   "image",
   "item_image",
   "quantity_and_rate_section",
@@ -63,10 +62,6 @@
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
-  },
-  {
-   "fieldname": "column_break_8",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "image",
@@ -128,7 +123,7 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-06-14 21:17:50.752156",
+ "modified": "2022-12-20 21:17:50.752156",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request Item",

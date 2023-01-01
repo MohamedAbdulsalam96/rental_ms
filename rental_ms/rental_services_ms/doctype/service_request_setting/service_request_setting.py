@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright (c) 2019, Jigar Tarpara and contributors
-# For license information, please see license.txt
+
+
+
 
 from __future__ import unicode_literals
 import frappe
@@ -33,17 +33,21 @@ def setup_custom_fields():
                  insert_after='service_item',
                  options='Item',
                  depends_on='eval:!doc.rental_item',
-                 read_only=0, print_hide=1)
+                 read_only=0, print_hide=1),
+            dict(fieldname='is_vehicle',
+                 label='Is Vehicle?',
+                 fieldtype='Check',
+                 insert_after='is_fixed_asset',)
         ],
-        "Sales Order": [
+        "Sales Invoice": [
             dict(fieldname='service_request',
                  label='Service Request',
                  fieldtype='Link',
-                 insert_after='customer_name',
-                 read_only=0,
+                 insert_after='pos_profile',
+                 read_only=1,
                  options='Service Request'
                  ),
-        ]
+        ],
     }
 
     create_custom_fields(custom_fields)

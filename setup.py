@@ -9,7 +9,7 @@ from rental_ms import __version__ as version
 setup(
 	name="rental_ms",
 	version=version,
-	description="Booking Any type of Service",
+	description="Booking of Rental Service",
 	author="Mohamed Abdulsalam Alqadasi",
 	author_email="moha2016it@gmail.com",
 	packages=find_packages(),
