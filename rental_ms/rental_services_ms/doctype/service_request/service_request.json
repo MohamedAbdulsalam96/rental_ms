@@ -34,10 +34,6 @@
   "is_secured_service",
   "service_security_details_section",
   "proposed_pledges",
-  "items_component_section",
-  "car_components",
-  "insurances_section",
-  "insurances",
   "status_section_section",
   "sales_invoice",
   "status"
@@ -168,6 +164,7 @@
   {
    "fieldname": "status_section_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Status Section"
   },
   {
@@ -198,37 +195,9 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Status",
    "options": "\nDraft\nOn Hold\nTo Deliver and Bill\nTo Bill\nTo Deliver\nCompleted\nCancelled\nClosed",
    "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.book_item",
-   "fieldname": "items_component_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Car Component"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "car_components",
-   "fieldtype": "Table",
-   "label": "Car component",
-   "options": "Car Components"
-  },
-  {
-   "fieldname": "insurances_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Insurances"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "insurances",
-   "fieldtype": "Table",
-   "label": "Insurances",
-   "options": "Car Insurances"
   },
   {
    "allow_on_submit": 1,
@@ -284,13 +253,15 @@
    "link_fieldname": "service_request"
   }
  ],
- "modified": "2023-01-01 23:20:07.701705",
+ "modified": "2023-01-04 22:19:47.435263",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request",
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -299,6 +270,8 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
+   "set_user_permissions": 1,
    "share": 1,
    "submit": 1,
    "write": 1

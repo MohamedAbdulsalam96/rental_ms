@@ -1,8 +1,8 @@
-# Copyright (c) 2022, Mohamed Abdulsalam
+# Copyright (c) 2023, Mohamed Abdulsalam Alqadasi and contributors
 # For license information, please see license.txt
 
 # import frappe
 from frappe.model.document import Document
 
-class CarComponent(Document):
+class ClaimsItems(Document):
 	pass

@@ -1,19 +1,12 @@
 {
  "actions": [],
  "beta": 1,
- "creation": "2022-12-20 14:21:10.391410",
+ "creation": "2023-01-04 01:26:29.340378",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "item",
-  "service_item",
-  "delivery_date",
-  "return_date",
-  "column_break_2",
-  "note",
-  "image",
-  "item_image",
   "quantity_and_rate_section",
   "quantity",
   "rate",
@@ -34,51 +27,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "service_item",
-   "fieldtype": "Link",
-   "label": "Service Item",
-   "options": "Item",
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "delivery_date",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Delivery Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "return_date",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Return Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "note",
-   "fieldtype": "Small Text",
-   "label": "Note"
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "Attach",
-   "hidden": 1,
-   "label": "Image"
-  },
-  {
-   "bold": 1,
-   "fieldname": "item_image",
-   "fieldtype": "Image",
-   "label": "View",
-   "no_copy": 1,
-   "options": "image"
-  },
-  {
    "fieldname": "quantity_and_rate_section",
    "fieldtype": "Section Break",
    "label": "QUANTITY AND RATE"
@@ -90,7 +38,6 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Quantity",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -127,16 +74,15 @@
    "fieldname": "currency",
    "fieldtype": "Link",
    "label": "Currency",
-   "options": "Currency",
-   "read_only": 1
+   "options": "Currency"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2023-01-04 23:42:11.957440",
+ "modified": "2023-01-04 23:52:16.504033",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
- "name": "Service Request Item",
+ "name": "Claims Items",
  "owner": "Administrator",
  "permissions": [],
  "quick_entry": 1,

@@ -191,13 +191,15 @@ var get_item_price_rate= function(frm, cdt, cdn) {
 	frappe.model.get_value('Item Price', 
 		{
 			'item_code': child.service_item,
-			'price_list': "البيع القياسي - YER",
+			// 'price_list': "",
 			'selling': 1
 		}, 
-		'price_list_rate',
+		['price_list_rate', 'currency'], 
 		function(d) {
 			if(d) {
+				frappe.model.set_value(child.doctype, child.name, "currency", d.currency);
 				frappe.model.set_value(child.doctype, child.name, "rate", d.price_list_rate);
+				
 			}else{
 				frappe.model.set_value(child.doctype, child.name, "rate", "0");
 			}

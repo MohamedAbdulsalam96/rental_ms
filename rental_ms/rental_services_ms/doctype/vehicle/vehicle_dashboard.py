@@ -6,7 +6,7 @@ def get_data():
 	return {
 		'heatmap': True,
 		'heatmap_message': _('This is based on logs against this Vehicle. See timeline below for details'),
-		'fieldname': 'vehicle_item',
+		'fieldname': 'item_code',
 		'non_standard_fieldnames':{
 			'Delivery Trip': 'vehicle'
 		},

@@ -26,7 +26,7 @@ def setup_custom_fields():
                  insert_after='rental_item',
                  options='Item',
                  depends_on='eval:doc.rental_item',
-                 read_only=0, print_hide=1),
+                 read_only=1, print_hide=1),
             dict(fieldname='is_service_item',
                  label='Is Service Item',
                  fieldtype='Check',

@@ -9,7 +9,8 @@
  "field_order": [
   "vehicle_section",
   "naming_series",
-  "vehicle_item",
+  "item_code",
+  "vehicle_name",
   "license_plate",
   "employee",
   "column_break_7",
@@ -30,6 +31,8 @@
   "service_details",
   "service_detail",
   "amended_from",
+  "payment_claims_details_customer_section",
+  "claims",
   "references_section",
   "service_request"
  ],
@@ -50,8 +53,7 @@
    "set_only_once": 1
   },
   {
-   "fetch_from": "vehicle_item.license_plate",
-   "fetch_if_empty": 1,
+   "fetch_from": "item_code.license_plate",
    "fieldname": "license_plate",
    "fieldtype": "Data",
    "in_global_search": 1,
@@ -59,8 +61,7 @@
    "label": "License Plate"
   },
   {
-   "fetch_from": "vehicle_item.employee",
-   "fetch_if_empty": 1,
+   "fetch_from": "item_code.employee",
    "fieldname": "employee",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -73,15 +74,13 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "vehicle_item.model",
-   "fetch_if_empty": 1,
+   "fetch_from": "item_code.model",
    "fieldname": "model",
    "fieldtype": "Read Only",
    "label": "Model"
   },
   {
-   "fetch_from": "vehicle_item.make",
-   "fetch_if_empty": 1,
+   "fetch_from": "item_code.make",
    "fieldname": "make",
    "fieldtype": "Read Only",
    "label": "Make"
@@ -108,8 +107,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "vehicle_item.last_odometer",
-   "fetch_if_empty": 1,
+   "fetch_from": "item_code.last_odometer",
    "fieldname": "last_odometer",
    "fieldtype": "Int",
    "label": "Last Odometer Value ",
@@ -168,17 +166,6 @@
    "read_only": 1
   },
   {
-   "allow_in_quick_entry": 1,
-   "bold": 1,
-   "fieldname": "vehicle_item",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Vehicle Item",
-   "options": "Vehicle",
-   "reqd": 1
-  },
-  {
    "fieldname": "references_section",
    "fieldtype": "Section Break",
    "label": "References"
@@ -190,7 +177,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Service Request",
-   "options": "Service Request"
+   "options": "Service Request",
+   "read_only": 1
   },
   {
    "fieldname": "customer",
@@ -199,11 +187,39 @@
    "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "bold": 1,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vehicle Item",
+   "options": "Vehicle"
+  },
+  {
+   "fetch_from": "item_code.vehicle_name",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_claims_details_customer_section",
+   "fieldtype": "Section Break",
+   "label": "Payment claims details (Customer)"
+  },
+  {
+   "fieldname": "claims",
+   "fieldtype": "Table",
+   "label": "Claims",
+   "options": "Claims Items"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-02 01:03:28.425019",
+ "modified": "2023-01-07 00:21:57.450925",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle Log",

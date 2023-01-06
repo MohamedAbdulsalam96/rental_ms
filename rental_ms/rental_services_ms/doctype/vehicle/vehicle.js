@@ -3,13 +3,13 @@
 
 frappe.ui.form.on('Vehicle', {
 	refresh: function(frm) {
-		frm.set_query("vehicle_item", function(){
+		frm.set_query("item_code", function(){
 			return {
 				filters: {
 					"rental_item": 1
 				}
 			};
 	});
-}
+    }
 
 });

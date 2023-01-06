@@ -10,12 +10,12 @@ def make_booking_service_item(doc, method):
 
 
 def create_service_item(item):
-    if not frappe.db.exists("Item", item.item_code + "_Rental_service"):
+    if not frappe.db.exists("Item", item.item_code + "_RS"):
         service_request_setting = frappe.get_cached_doc("Service Request Setting")
         service_item = frappe.new_doc("Item")
         service_item.update({
-            "item_code": item.item_code + "_Rental_service",
-            "item_name": item.item_name + "_Rental_service",
+            "item_code": item.item_code + "_RS",
+            "item_name": item.item_name + "_RS",
             "item_group": service_request_setting.service_item_group,
             "stock_uom": service_request_setting.default_unit_of_measure,
             "is_stock_item": False,
@@ -24,7 +24,7 @@ def create_service_item(item):
         service_item.save(ignore_permissions=True)
         item.service_item = service_item.name
     else:
-        item.service_item = item.item_code + "_Rental_service"
+        item.service_item = item.item_code + "_RS"
         print("item_name",item.item_name + " (R) ")
         frappe.db.set_value("Item",item.service_item, "item_name",item.item_name + " (R) ")
         frappe.db.set_value("Item",item.service_item, "image",item.image)
@@ -39,10 +39,10 @@ def validate_service_item(doc):
             frappe.throw("Stock Item can't be use as service item.")
 
 # ////////////////////////
-# def make_vehicle_item(doc, method):
-#     if doc.is_vehicle == 1:
-#         create_vehicle_item(doc)
-#         validate_vehicle_item(doc)
+def make_vehicle_item(doc, method):
+    if doc.is_vehicle == 1:
+        create_vehicle_item(doc)
+        validate_vehicle_item(doc)
 
 
 # def create_vehicle_item(item):
@@ -50,8 +50,8 @@ def validate_service_item(doc):
 #         # service_request_setting = frappe.get_cached_doc("Service Request Setting")
 #         vehicle_item = frappe.new_doc("Item")
 #         service_item.update({
-#             "item_code": item.item_code + "_Rental_service",
-#             "item_name": item.item_name + "_Rental_service",
+#             "item_code": item.item_code + "_RS",
+#             "item_name": item.item_name + "_RS",
 #             "item_group": service_request_setting.service_item_group,
 #             "stock_uom": service_request_setting.default_unit_of_measure,
 #             "is_stock_item": False,
@@ -60,7 +60,7 @@ def validate_service_item(doc):
 #         service_item.save(ignore_permissions=True)
 #         item.service_item = service_item.name
 #     else:
-#         item.service_item = item.item_code + "_Rental_service"
+#         item.service_item = item.item_code + "_RS"
 #         print("item_name",item.item_name + " (R) ")
 #         frappe.db.set_value("Item",item.service_item, "item_name",item.item_name + " (R) ")
 #         frappe.db.set_value("Item",item.service_item, "image",item.image)

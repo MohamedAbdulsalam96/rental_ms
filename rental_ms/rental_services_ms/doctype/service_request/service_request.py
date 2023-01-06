@@ -166,15 +166,15 @@ def make_vehicle_log(source_name, target_doc=None):
 	customer = frappe.db.get_value("Customer", {"name": cst}, [
 								   "name", "customer_name"], as_dict=True)
 	vm = frappe.db.get_value("Service Request", source_name, ["item"])
-	vehicle_item = frappe.db.get_value("Item", {"name": vm},as_dict=True)
+	item_code = frappe.db.get_value("Item", {"name": vm},as_dict=True)
 
 	# service_request_doc = frappe.get_doc("Service Request", service_request)
 
-	# vl = frappe.new_doc("Loan Security Pledge")
-	# lsp.applicant_type = service_request_doc.party_type
-	# lsp.applicant = service_request_doc.customer
-	# lsp.service_request = service_request_doc.name
-	# lsp.company = service_request_doc.company
+	# vl = frappe.new_doc("Vehicle Log")
+	# vl.item_code = service_request_doc.item
+	# vl.applicant = service_request_doc.customer
+	# vl.service_request = service_request_doc.name
+	# vl.company = service_request_doc.company
 
 
 
@@ -182,11 +182,20 @@ def make_vehicle_log(source_name, target_doc=None):
 		if customer:
 			target.customer = customer.name
 			target.customer_name = customer.customer_name
-			target.vehicle_item = vehicle_item.name
+			# target.item_code = item_code.name
 		target.ignore_pricing_rule = 1
 		target.flags.ignore_permissions = True
 		target.run_method("set_missing_values")
 		target.run_method("calculate_taxes_and_totals")
+
+		if item_code:
+			target.item_code = item_code.name
+			target.vehicle_name = item_code.vehicle_name
+			# target.item_code = item_code.name
+		target.flags.ignore_permissions = True
+		target.run_method("set_missing_values")
+
+
 
 	# def update_item(obj, target, source_parent):
 	# 	target.stock_qty = flt(obj.quantity)
@@ -197,8 +206,8 @@ def make_vehicle_log(source_name, target_doc=None):
 			"doctype": "Vehicle Log",
 			"field_map": {
 				"parent": "service_request",
-				"vehicle_item": "item",
-     			"Customer": "Customer"
+				# "item_code": "item",
+     			# "Customer": "Customer"
 			},
 			"validation": {
 				"docstatus": ["=", 1]
@@ -305,7 +314,7 @@ def create_pledge(service_request):
 	message = _("Rental Service Security Pledge Created : {0}").format(lsp.name)
 	frappe.msgprint(message)
 
-	return lsp.name
+	# return lsp.name
 
 # Get LS price
 @frappe.whitelist()
