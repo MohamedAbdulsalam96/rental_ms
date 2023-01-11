@@ -28,11 +28,20 @@ class LoanSecurityPledge(Document):
 			update_shortfall_status(self.loan, self.total_security_value)
 			update_loan(self.loan, self.maximum_loan_value)
 
+		if self.service_request:
+			self.db_set("status", "Pledged")
+			self.db_set("pledge_time", now_datetime())
+
 	def on_cancel(self):
 		if self.loan:
 			self.db_set("status", "Cancelled")
 			self.db_set("pledge_time", None)
 			update_loan(self.loan, self.maximum_loan_value, cancel=1)
+
+		if self.service_request:
+			self.db_set("status", "Cancelled")
+			self.db_set("pledge_time", None)
+			# update_loan(self.loan, self.maximum_loan_value, cancel=1)
 
 	def validate_duplicate_securities(self):
 		security_list = []
@@ -97,3 +106,12 @@ def update_loan(loan, maximum_value_against_pledge, cancel=0):
 	else:
 		frappe.db.sql(""" UPDATE `tabLoan` SET maximum_loan_amount=%s, is_secured_loan=1
 			WHERE name=%s""", (maximum_loan_value + maximum_value_against_pledge, loan))
+
+@frappe.whitelist()
+def set_unpledged(self):
+	if self.status:
+			self.db_set("status", "Unpledged")
+			# self.db_set("pledge_time", now_datetime())
+			# update_shortfall_status(self.loan, self.total_security_value)
+			# update_loan(self.loan, self.maximum_loan_value)
+	

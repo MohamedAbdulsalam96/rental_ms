@@ -58,10 +58,13 @@ frappe.ui.form.on("Vehicle Log", {
 			},
 			callback: function(r) {
 				// var doc = frappe.model.sync(r.message);
+				// sales_doc = frappe.get_doc("Sales Invoice", {"vehicle_log":frm.doc.name})
+				// lsp = vehicle_log_doc.name
+				// var doc = frappe.get_doc('Sales Invoice', {"vehicle_log": frm.doc.name});
 				// frappe.set_route('Form', 'Sales Invoice', r.message.name);
 				// frappe.set_route("Form", "Sales Invoice");
 				// frappe.set_route("Form", "Sales Invoice", {"vehicle_log": frm.doc.name});
-				frappe.set_route("Form", "Sales Invoice", {"doc.vehicle_log": frm.doc.name});
+				frappe.set_route("Form", "Sales Invoice");
 			}
 		})
 	},

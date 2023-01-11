@@ -148,8 +148,8 @@
   {
    "hidden": 0,
    "is_query_report": 1,
-   "label": "Loan Security Status",
-   "link_to": "Loan Security Status",
+   "label": "Service Security Status",
+   "link_to": "Service Security Status",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
@@ -304,7 +304,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-01-04 22:16:07.387822",
+ "modified": "2023-01-07 23:51:32.050205",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Car Rental",

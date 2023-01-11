@@ -1,0 +1,32 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-01-07 23:41:52.651867",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"columns\":[{\"label\":\"Loan Security Pledge\",\"fieldtype\":\"Link\",\"fieldname\":\"loan_security_pledge\",\"options\":\"Loan Security Pledge\",\"width\":200,\"id\":\"loan_security_pledge\",\"name\":\"Loan Security Pledge\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"service_request\",\"field\":\"service_request\",\"fieldtype\":\"Link\",\"label\":\"Service Request\",\"insert_after_index\":0,\"link_field\":\"loan_security_pledge\",\"doctype\":\"Loan Security Pledge\",\"options\":\"Service Request\",\"width\":100,\"id\":\"service_request\",\"name\":\"Service Request\",\"editable\":false,\"compareValue\":null},{\"label\":\"Loan\",\"fieldtype\":\"Link\",\"fieldname\":\"loan\",\"options\":\"Loan\",\"width\":200,\"id\":\"loan\",\"name\":\"Loan\",\"editable\":false,\"compareValue\":null},{\"label\":\"Applicant\",\"fieldtype\":\"Data\",\"fieldname\":\"applicant\",\"width\":200,\"id\":\"applicant\",\"name\":\"Applicant\",\"editable\":false,\"compareValue\":null},{\"label\":\"Status\",\"fieldtype\":\"Data\",\"fieldname\":\"status\",\"width\":100,\"id\":\"status\",\"name\":\"Status\",\"editable\":false,\"compareValue\":null},{\"label\":\"Pledge Time\",\"fieldtype\":\"Data\",\"fieldname\":\"pledge_time\",\"width\":150,\"id\":\"pledge_time\",\"name\":\"Pledge Time\",\"editable\":false,\"compareValue\":null},{\"label\":\"Loan Security\",\"fieldtype\":\"Link\",\"fieldname\":\"loan_security\",\"options\":\"Loan Security\",\"width\":150,\"id\":\"loan_security\",\"name\":\"Loan Security\",\"editable\":false,\"compareValue\":null},{\"label\":\"Quantity\",\"fieldtype\":\"Float\",\"fieldname\":\"qty\",\"width\":100,\"id\":\"qty\",\"name\":\"Quantity\",\"editable\":false,\"compareValue\":null},{\"label\":\"Loan Security Price\",\"fieldtype\":\"Currency\",\"fieldname\":\"loan_security_price\",\"options\":\"currency\",\"width\":200,\"id\":\"loan_security_price\",\"name\":\"Loan Security Price\",\"editable\":false,\"compareValue\":null},{\"label\":\"Loan Security Value\",\"fieldtype\":\"Currency\",\"fieldname\":\"loan_security_value\",\"options\":\"currency\",\"width\":200,\"id\":\"loan_security_value\",\"name\":\"Loan Security Value\",\"editable\":false,\"compareValue\":null}]}",
+ "letter_head": "LetterHead - img",
+ "modified": "2023-01-07 23:42:58.669598",
+ "modified_by": "Administrator",
+ "module": "Rental Services MS",
+ "name": "sssssssssssssss",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Loan Security",
+ "reference_report": "Loan Security Status",
+ "report_name": "sssssssssssssss",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Loan Manager"
+  }
+ ]
+}

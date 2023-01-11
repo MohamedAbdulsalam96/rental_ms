@@ -149,7 +149,7 @@ def create_sales_invoice_item(vehicle_log):
 	lsp.save()
 	# lsp.submit()
 
-	# message = _("Rental Service Security Pledge Created : {0}").format(lsp.name)
+	# message = _("Sales Invoice Created : {0}").format(lsp.name)
 	# frappe.msgprint(message)
 
 

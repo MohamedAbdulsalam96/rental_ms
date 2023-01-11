@@ -26,7 +26,8 @@
   "reference_no",
   "column_break_18",
   "description",
-  "amended_from"
+  "amended_from",
+  "loan_security_unpledge"
  ],
  "fields": [
   {
@@ -82,6 +83,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "Requested",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -122,6 +124,7 @@
   {
    "fieldname": "maximum_loan_value",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Maximum Loan Value",
    "options": "Company:company:default_currency",
    "read_only": 1
@@ -168,12 +171,17 @@
    "options": "Service Request",
    "read_only": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "loan_security_unpledge",
+   "fieldtype": "Button",
+   "label": "Loan Security Unpledge"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-04 22:36:56.068356",
+ "modified": "2023-01-11 04:49:07.607500",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Loan Security Pledge",

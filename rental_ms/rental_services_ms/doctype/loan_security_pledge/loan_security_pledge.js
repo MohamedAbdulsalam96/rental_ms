@@ -2,6 +2,15 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Loan Security Pledge', {
+	// refresh: function(frm) {
+	// 	if(frm.doc.docstatus == 1 && frm.doc.status == 'Pledged'){
+	// 		cur_frm.add_custom_button(__('Sales Invoice'),
+	// 			cur_frm.cscript['Make Sales Invoice'], __("Make"));
+	// 		cur_frm.page.set_inner_btn_group_as_primary(__("Make"));
+	// 	}
+
+	// }
+
 	calculate_amounts: function(frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
 		frappe.model.set_value(cdt, cdn, 'amount', row.qty * row.loan_security_price);
@@ -17,6 +26,11 @@ frappe.ui.form.on('Loan Security Pledge', {
 		frm.set_value('total_security_value', amount);
 		frm.set_value('maximum_loan_value', maximum_amount);
 	}
+	// ///////////////	
+
+
+
+
 });
 
 frappe.ui.form.on("Pledge", {

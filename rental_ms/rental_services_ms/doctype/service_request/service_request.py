@@ -117,6 +117,7 @@ def make_sales_invoice(source_name, target_doc=None):
 			target.customer = customer.name
 			target.customer_name = customer.customer_name
 		target.ignore_pricing_rule = 1
+		target.currency = "USD"
 		target.flags.ignore_permissions = True
 		target.run_method("set_missing_values")
 		target.run_method("calculate_taxes_and_totals")
@@ -129,7 +130,8 @@ def make_sales_invoice(source_name, target_doc=None):
 		"Service Request": {
 			"doctype": "Sales Invoice",
 			"field_map": {
-				"parent": "service_request"
+				"parent": "service_request",
+				# "USD": "currency"
 			},
 			"validation": {
 				"docstatus": ["=", 1]
@@ -166,7 +168,39 @@ def make_vehicle_log(source_name, target_doc=None):
 	customer = frappe.db.get_value("Customer", {"name": cst}, [
 								   "name", "customer_name"], as_dict=True)
 	vm = frappe.db.get_value("Service Request", source_name, ["item"])
-	item_code = frappe.db.get_value("Item", {"name": vm},as_dict=True)
+	item_code = frappe.db.get_value("Vehicle", {"name": vm},["name", "vehicle_name", "license_plate","last_odometer", "model","make"],as_dict=True)
+
+	# log = frappe.db.get_value("Vehicle", source_name, ["item_code"])
+	# item_v = frappe.db.get_value("Item", {"name": vm},as_dict=True)
+
+
+	def set_missing_values(source, target):
+		if customer:
+			target.customer = customer.name
+
+		if item_code:
+			target.item_code = item_code.name
+			target.license_plate = item_code.license_plate
+			target.vehicle_name = item_code.vehicle_name
+			target.license_plate = item_code.license_plate
+			target.last_odometer = item_code.last_odometer
+			target.model = item_code.model
+			target.make = item_code.make
+			# target.vehicle_name = item_code.vehicle_name
+			# target.vehicle_name = target.item_code.vehicle_name
+
+		# vlog = target.item_code
+		# target.license_plate = "vlog.license_plate"
+			# target.item_code = item_code.name
+		# target.flags.ignore_permissions = True
+		target.run_method("set_missing_values")	
+			# target.customer_name = customer.customer_name
+			# target.license_plate = item_code.license_plate
+		# target.ignore_pricing_rule = 1
+		# target.currency = "USD"
+		# target.flags.ignore_permissions = True
+		# target.run_method("set_missing_values")
+		# target.run_method("calculate_taxes_and_totals")
 
 	# service_request_doc = frappe.get_doc("Service Request", service_request)
 
@@ -178,22 +212,27 @@ def make_vehicle_log(source_name, target_doc=None):
 
 
 
-	def set_missing_values(source, target):
-		if customer:
-			target.customer = customer.name
-			target.customer_name = customer.customer_name
-			# target.item_code = item_code.name
-		target.ignore_pricing_rule = 1
-		target.flags.ignore_permissions = True
-		target.run_method("set_missing_values")
-		target.run_method("calculate_taxes_and_totals")
+	# def set_missing_values(source, target):
+	# 	# if customer:
+	# 	# 	target.customer = customer.name
+	# 	# 	target.customer_name = customer.customer_name
+	# 	# 	# target.item_code = item_code.name
+	# 	# target.ignore_pricing_rule = 1
+	# 	# target.license_plate = item_code.license_plate
+	# 	# # item_code.license_plate
+	# 	# target.flags.ignore_permissions = True
+	# 	# target.run_method("set_missing_values")
+	# 	# target.run_method("calculate_taxes_and_totals")
 
-		if item_code:
-			target.item_code = item_code.name
-			target.vehicle_name = item_code.vehicle_name
-			# target.item_code = item_code.name
-		target.flags.ignore_permissions = True
-		target.run_method("set_missing_values")
+	# 	if item_code:
+	# 		target.item_code = item_code.name
+	# 		# target.vehicle_name = target.item_code.vehicle_name
+
+	# 	# vlog = target.item_code
+	# 	# target.license_plate = "vlog.license_plate"
+	# 		# target.item_code = item_code.name
+	# 	# target.flags.ignore_permissions = True
+	# 	target.run_method("set_missing_values")
 
 
 
@@ -206,6 +245,7 @@ def make_vehicle_log(source_name, target_doc=None):
 			"doctype": "Vehicle Log",
 			"field_map": {
 				"parent": "service_request",
+				# "license_plate": item_code.license_plate
 				# "item_code": "item",
      			# "Customer": "Customer"
 			},

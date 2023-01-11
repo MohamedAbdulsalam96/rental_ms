@@ -57,7 +57,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Naming Series",
-   "options": "BK-.########",
+   "options": "RS-.YY.-",
    "print_hide": 1,
    "read_only": 1,
    "reqd": 1
@@ -74,7 +74,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Rental Item",
-   "options": "Item",
+   "options": "Vehicle",
    "read_only": 1
   },
   {
@@ -86,6 +86,7 @@
   {
    "fieldname": "vehicle_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Vehicle Name",
    "options": "Vehicle",
    "read_only": 1
@@ -104,13 +105,11 @@
   {
    "fieldname": "delivery_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Delivery Date"
   },
   {
    "fieldname": "return_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Return Date"
   },
   {
@@ -121,21 +120,18 @@
    "default": "1",
    "fieldname": "quantity",
    "fieldtype": "Float",
-   "in_list_view": 1,
    "label": "Quantity",
    "read_only": 1
   },
   {
    "fieldname": "rate",
    "fieldtype": "Currency",
-   "in_list_view": 1,
    "label": "Rate",
    "read_only": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "in_list_view": 1,
    "label": "Amount",
    "read_only": 1
   },
@@ -253,7 +249,7 @@
    "link_fieldname": "service_request"
   }
  ],
- "modified": "2023-01-04 22:19:47.435263",
+ "modified": "2023-01-10 05:59:59.010846",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request",

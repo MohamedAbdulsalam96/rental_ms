@@ -178,7 +178,8 @@
    "in_standard_filter": 1,
    "label": "Service Request",
    "options": "Service Request",
-   "read_only": 1
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "customer",
@@ -206,11 +207,13 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "payment_claims_details_customer_section",
    "fieldtype": "Section Break",
    "label": "Payment claims details (Customer)"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "claims",
    "fieldtype": "Table",
    "label": "Claims",
@@ -219,7 +222,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-07 00:21:57.450925",
+ "modified": "2023-01-11 04:52:42.577048",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle Log",
