@@ -49,7 +49,7 @@
   {
    "fieldname": "make",
    "fieldtype": "Data",
-   "label": "Make"
+   "label": "Make."
   },
   {
    "fieldname": "column_break_3",
@@ -200,6 +200,7 @@
    "fetch_from": "item_code.item_name",
    "fieldname": "vehicle_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Vehicle Name",
    "read_only": 1
   },
@@ -223,7 +224,7 @@
   }
  ],
  "links": [],
- "modified": "2023-01-02 19:41:29.769479",
+ "modified": "2023-01-13 03:17:06.498761",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle",

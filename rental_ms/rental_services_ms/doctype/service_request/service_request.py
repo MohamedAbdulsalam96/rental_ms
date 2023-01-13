@@ -412,3 +412,26 @@ def get_proposed_pledge(securities):
 # From Loan Application
 
 # *****************************
+
+
+# @frappe.whitelist()
+# def create_vehicle(service_request):
+# 	item_doc = frappe.get_doc("Item", item)
+
+# 	iv = frappe.new_doc("Vehicle")
+# 	iv.item_code = item_doc.item_code
+# 	# iv.applicant = item_doc.customer
+# 	# iv.service_request = item_doc.name
+# 	# iv.company = item_doc.company
+
+# 	# if loan:
+# 	# 	lsp.loan = loan
+
+# 	iv.save()
+# 	# lsp.submit()
+
+# 	message = _("Rental Service Security Pledge Created : {0}").format(iv.name)
+# 	frappe.msgprint(message)
+
+# 	return iv.name
+

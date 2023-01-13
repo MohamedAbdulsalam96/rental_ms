@@ -55,7 +55,6 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Naming Series",
    "options": "RS-.YY.-",
    "print_hide": 1,
@@ -249,7 +248,7 @@
    "link_fieldname": "service_request"
   }
  ],
- "modified": "2023-01-10 05:59:59.010846",
+ "modified": "2023-01-13 00:24:00.620091",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Service Request",

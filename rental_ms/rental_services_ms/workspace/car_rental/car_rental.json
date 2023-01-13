@@ -8,6 +8,7 @@
  "doctype": "Workspace",
  "extends_another_page": 0,
  "hide_custom": 0,
+ "icon": "loan",
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
@@ -132,15 +133,6 @@
    "is_query_report": 0,
    "label": "Loan Security pledge",
    "link_to": "Loan Security Pledge",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Loan Security Unpledge",
-   "link_to": "Loan Security Unpledge",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -304,7 +296,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-01-07 23:51:32.050205",
+ "modified": "2023-01-13 20:16:31.712517",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Car Rental",
@@ -338,19 +330,15 @@
    "format": "{} Available",
    "label": "Vehicle",
    "link_to": "Vehicle",
-   "stats_filter": "{\n    \"vehicle_name\": \"not nul\"\n}",
+   "stats_filter": "{\"name\":[\"!=\",\"sdsdsdsdsd\"]\r\n}",
    "type": "DocType"
   },
   {
    "doc_view": "",
+   "format": "{} Draft",
    "label": "Vehicle Log",
    "link_to": "Vehicle Log",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "Loan Security pledge",
-   "link_to": "Loan Security Pledge",
+   "stats_filter": "{\"docstatus\": \"Draft\"}",
    "type": "DocType"
   },
   {
@@ -363,14 +351,24 @@
   },
   {
    "doc_view": "",
-   "label": "Supplier",
-   "link_to": "Supplier",
+   "format": "{}  Pledged",
+   "label": "Loan Security pledge",
+   "link_to": "Loan Security Pledge",
+   "stats_filter": "{\"status\": \"Pledged\"}",
    "type": "DocType"
   },
   {
    "doc_view": "",
+   "label": "Service Security Status",
+   "link_to": "Service Security Status",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "format": "{}",
    "label": "Sales Invoice",
    "link_to": "Sales Invoice",
+   "stats_filter": "{\r\n    \"status\":[\"NOT IN\" , [\"Cancelled\"]]\r\n}",
    "type": "DocType"
   },
   {
