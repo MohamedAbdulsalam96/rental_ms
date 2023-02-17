@@ -87,9 +87,9 @@ class ServiceRequest(Document):
 				return "3 Already Booked: ID " + booking.parent + " \n" + str(filters)
 				# return "3 Already Booked: ID " + booking.customer + " \n"
 
-			filters = {}
-			filters = {'item': item, 'docstatus': 1}
-			filters.update({'name': ['!=', row.name]})
+			# filters = {}
+			# filters = {'item': item, 'docstatus': 1}
+			# filters.update({'name': ['!=', row.name]})
 			filters.update(
 				{'return_date': ['between', delivery_date+" and " + return_date]})
 
