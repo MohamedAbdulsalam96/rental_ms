@@ -26,8 +26,7 @@
   "reference_no",
   "column_break_18",
   "description",
-  "amended_from",
-  "loan_security_unpledge"
+  "amended_from"
  ],
  "fields": [
   {
@@ -56,12 +55,14 @@
   {
    "fieldname": "loan",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Loan",
    "options": "Loan"
   },
   {
    "fieldname": "loan_application",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Loan Application",
    "options": "Loan Application"
   },
@@ -171,17 +172,12 @@
    "options": "Service Request",
    "read_only": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "loan_security_unpledge",
-   "fieldtype": "Button",
-   "label": "Loan Security Unpledge"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-13 03:08:13.575349",
+ "modified": "2023-02-17 05:18:29.472234",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Loan Security Pledge",

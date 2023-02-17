@@ -19,7 +19,8 @@ def create_service_item(item):
             "item_group": service_request_setting.service_item_group,
             "stock_uom": service_request_setting.default_unit_of_measure,
             "is_stock_item": False,
-            "is_service_item": True
+            "is_service_item": True,
+            "sandard_rate": "100"
         })
         service_item.save(ignore_permissions=True)
         item.service_item = service_item.name

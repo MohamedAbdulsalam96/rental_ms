@@ -51,8 +51,11 @@ def make_expense_claim(docname):
 	exp_claim.remark = _("Expense Claim for Vehicle Log {0}").format(vehicle_log.name)
 	exp_claim.append("expenses", {
 		"expense_date": vehicle_log.date,
+		"expense_type": _("مصاريف سيارات التاجير"),
 		"description": _("Vehicle Expenses"),
-		"amount": claim_amount
+		"amount": claim_amount,
+		"sanctioned_amount": claim_amount,
+
 	})
 	return exp_claim.as_dict()
 
