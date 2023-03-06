@@ -13,6 +13,7 @@
   "column_break_3",
   "make",
   "model",
+  "status",
   "vehicle_details",
   "last_odometer",
   "acquisition_date",
@@ -221,10 +222,17 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Vehicle Item"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nBooked\nAvailabe",
+   "translatable": 1
   }
  ],
  "links": [],
- "modified": "2023-01-13 03:17:06.498761",
+ "modified": "2023-03-06 11:33:49.407481",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle",
