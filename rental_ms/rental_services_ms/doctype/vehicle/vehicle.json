@@ -224,15 +224,19 @@
    "label": "Vehicle Item"
   },
   {
+   "bold": 1,
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "\nBooked\nAvailabe",
+   "read_only": 1,
    "translatable": 1
   }
  ],
  "links": [],
- "modified": "2023-03-06 11:33:49.407481",
+ "modified": "2023-03-06 19:39:27.592366",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle",

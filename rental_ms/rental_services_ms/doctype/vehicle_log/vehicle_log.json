@@ -228,14 +228,16 @@
   {
    "fieldname": "status_book",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status Book",
    "options": "\nDelivery\nReturn",
+   "reqd": 1,
    "translatable": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-03-06 11:35:30.749109",
+ "modified": "2023-03-06 19:38:10.121731",
  "modified_by": "Administrator",
  "module": "Rental Services MS",
  "name": "Vehicle Log",
