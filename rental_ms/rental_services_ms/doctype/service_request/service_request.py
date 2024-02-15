@@ -13,20 +13,6 @@ from six import string_types
 import json
 import math
 
-
-# from erpnext.loan_management.doctype.loan.loan import (
-# 	get_monthly_repayment_amount,
-# 	get_sanctioned_amount_limit,
-# 	get_total_loan_amount,
-# 	validate_repayment_method,
-# )
-# from rental_ms.rental_services_ms.doctype.service_request.api.loan_security_price import (
-# 	get_loan_security_price,
-# )
-# rental_ms.rental_services_ms.doctype.service_request.api.loan_security_price
-# End : from loan app..............
-
-
 class ServiceRequest(Document):
 	def validate(self):
 		msg = self.validate_booking_date()
@@ -186,59 +172,10 @@ def make_vehicle_log(source_name, target_doc=None):
 			target.last_odometer = item_code.last_odometer
 			target.model = item_code.model
 			target.make = item_code.make
-			# target.vehicle_name = item_code.vehicle_name
-			# target.vehicle_name = target.item_code.vehicle_name
-
-		# vlog = target.item_code
-		# target.license_plate = "vlog.license_plate"
-			# target.item_code = item_code.name
-		# target.flags.ignore_permissions = True
+		
 		target.run_method("set_missing_values")	
-			# target.customer_name = customer.customer_name
-			# target.license_plate = item_code.license_plate
-		# target.ignore_pricing_rule = 1
-		# target.currency = "USD"
-		# target.flags.ignore_permissions = True
-		# target.run_method("set_missing_values")
-		# target.run_method("calculate_taxes_and_totals")
+	
 
-	# service_request_doc = frappe.get_doc("Service Request", service_request)
-
-	# vl = frappe.new_doc("Vehicle Log")
-	# vl.item_code = service_request_doc.item
-	# vl.applicant = service_request_doc.customer
-	# vl.service_request = service_request_doc.name
-	# vl.company = service_request_doc.company
-
-
-
-	# def set_missing_values(source, target):
-	# 	# if customer:
-	# 	# 	target.customer = customer.name
-	# 	# 	target.customer_name = customer.customer_name
-	# 	# 	# target.item_code = item_code.name
-	# 	# target.ignore_pricing_rule = 1
-	# 	# target.license_plate = item_code.license_plate
-	# 	# # item_code.license_plate
-	# 	# target.flags.ignore_permissions = True
-	# 	# target.run_method("set_missing_values")
-	# 	# target.run_method("calculate_taxes_and_totals")
-
-	# 	if item_code:
-	# 		target.item_code = item_code.name
-	# 		# target.vehicle_name = target.item_code.vehicle_name
-
-	# 	# vlog = target.item_code
-	# 	# target.license_plate = "vlog.license_plate"
-	# 		# target.item_code = item_code.name
-	# 	# target.flags.ignore_permissions = True
-	# 	target.run_method("set_missing_values")
-
-
-
-	# def update_item(obj, target, source_parent):
-	# 	target.stock_qty = flt(obj.quantity)
-	# 	target.qty = flt(obj.quantity)
 
 	doclist = get_mapped_doc("Service Request", source_name, {
 		"Service Request": {
@@ -253,28 +190,9 @@ def make_vehicle_log(source_name, target_doc=None):
 				"docstatus": ["=", 1]
 			}
 		},
-		# "Service Request Item": {
-		# 	"doctype": "Sales Order Item",
-		# 	"field_map": {
-		# 		"service_item": "item_code",
-		# 		"quantity": "stock_qty",
-		# 		"quantity": "qty",
-		# 		"delivery_date": "delivery_date"
-		# 	},
-		# 	# "postprocess": update_item
-		# },
-		# "Sales Taxes and Charges": {
-		# 	"doctype": "Sales Taxes and Charges",
-		# 	"add_if_empty": True
-		# },
-		# "Sales Team": {
-		# 	"doctype": "Sales Team",
-		# 	"add_if_empty": True
-		# }
-  
+
 	}, target_doc, set_missing_values, ignore_permissions=True)
 
-	# postprocess: fetch shipping address, set missing values
 
 	return doclist
 
@@ -407,31 +325,4 @@ def get_proposed_pledge(securities):
 	# proposed_pledges['maximum_loan_amount'] = maximum_loan_amount
 
 	return proposed_pledges
-
-
-# From Loan Application
-
-# *****************************
-
-
-# @frappe.whitelist()
-# def create_vehicle(service_request):
-# 	item_doc = frappe.get_doc("Item", item)
-
-# 	iv = frappe.new_doc("Vehicle")
-# 	iv.item_code = item_doc.item_code
-# 	# iv.applicant = item_doc.customer
-# 	# iv.service_request = item_doc.name
-# 	# iv.company = item_doc.company
-
-# 	# if loan:
-# 	# 	lsp.loan = loan
-
-# 	iv.save()
-# 	# lsp.submit()
-
-# 	message = _("Rental Service Security Pledge Created : {0}").format(iv.name)
-# 	frappe.msgprint(message)
-
-# 	return iv.name
 
